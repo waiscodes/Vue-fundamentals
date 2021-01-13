@@ -1,11 +1,8 @@
 <template>
   <div>
-    <p>Hello World</p>
-    <p v-once>My name is {{ myName }}</p>
-    <p>My name is {{ myName }}</p>
-    <p>Number: {{ randomNumber }}</p>
-    <input v-model="randomNumber" />
-    <button @click="changeNum">Change Number</button>
+    <h2>My Favourite Languages</h2>
+    <p>{{ keywords.join(" | ") }}</p>
+    <input :value="inputValue" @keyup.space="processInput($event)" />
   </div>
 </template>
 
@@ -13,20 +10,19 @@
 export default {
   data() {
     return {
-      myName: "Birm Wais",
-      randomNumber: 5,
+      index: 0,
+      keywords: [],
+      inputValue: "",
     };
   },
   methods: {
-    helloWorld() {
-      alert("Something");
+    processInput(e) {
+      const value = event.target.value;
+      this.keywords[this.index] = value;
+      this.inputValue = "";
+      this.index++;
+      console.log(e);
     },
-    changeNum() {
-      this.randomNumber = this.randomNumber++;
-    },
-  },
-  mounted() {
-    this.myName = "Jet Li";
   },
 };
 </script>
