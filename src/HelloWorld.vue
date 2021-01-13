@@ -13,25 +13,16 @@ export default {
       myName: "Birm Wais",
     };
   },
-  beforeCreate() {
-    // this is called as soon as main.js mounts as the first method
-    console.log("beforeCreate was called");
-  },
-  created() {
-    // this gets called as soon as the template injections are done
-    console.log("created was called");
-  },
-  beforeMount() {
-    // This is called when the component is about to be mounted
-    console.log("beforeMount was called");
+  methods: {
+    // This is just a regular object not a function like methods
+    // You define your methods inside this object
+    helloWorld() {
+      alert("Something");
+    },
   },
   mounted() {
-    // This changes after the page is mounted.
-    console.log("mounted was called");
-    this.myName = "Bruce Lee"; // Name is first Birm Wais and then Bruce Lee
+    this.helloWorld();
   },
-  beforeUnmount() {},
-  unmounted() {},
 };
 </script>
 
