@@ -4,7 +4,7 @@
     <p v-once>My name is {{ myName }}</p>
     <p>My name is {{ myName }}</p>
     <p>Number: {{ randomNumber }}</p>
-    <input :value="randomNumber" @input="func($event)" />
+    <input v-model="randomNumber" />
     <button @click="changeNum">Change Number</button>
   </div>
 </template>
@@ -18,9 +18,6 @@ export default {
     };
   },
   methods: {
-    func(e) {
-      this.randomNumber = e.target.value;
-    },
     helloWorld() {
       alert("Something");
     },
