@@ -2,7 +2,7 @@
   <div>
     <h2>My Favourite Languages</h2>
     <p>{{ keywords.join(" | ") }}</p>
-    <input :value="inputValue" @keyup.space="processInput($event)" />
+    <input :value="inputValue" @keyup.alt.enter="processInput($event)" />
   </div>
 </template>
 
