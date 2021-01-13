@@ -1,7 +1,11 @@
 <template>
   <div>
     <p>Hello World</p>
+    <p v-once>My name is {{ myName }}</p>
     <p>My name is {{ myName }}</p>
+    <p v-html="rawHTML"></p>
+    <p>raw HTML: {{ rawHTML }}</p>
+    <!-- Be careful with this method. Suspetible to cross site scripting -->
   </div>
 </template>
 
@@ -11,6 +15,7 @@ export default {
     // Data is a method that contains all the data that goes on the template
     return {
       myName: "Birm Wais",
+      rawHTML: "<strong>raw HTML</strong>",
     };
   },
   methods: {
@@ -21,7 +26,7 @@ export default {
     },
   },
   mounted() {
-    this.helloWorld();
+    this.myName = "Jet Li";
   },
 };
 </script>
