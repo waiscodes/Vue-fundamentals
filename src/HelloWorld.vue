@@ -13,6 +13,9 @@ export default {
       myName: "Birm Wais",
     };
   },
+  mounted() {
+    console.log(this);
+  },
 };
 </script>
 
