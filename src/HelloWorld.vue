@@ -3,7 +3,7 @@
     <h2>Speed Typer</h2>
     <p>
       <span v-for="keyword in keywords" :key="keyword"
-        >{{ keyword }}&nbsp;</span
+        >{{ keyword.text }}&nbsp;</span
       >
       <input
         type="text"
@@ -15,22 +15,50 @@
 </template>
 
 <script>
+const defaultKeywords = [
+  "hockey",
+  "soccer",
+  "basketball",
+  "baseball",
+  "something",
+  "random",
+  "okay",
+  "zebra",
+].map((keyword) => {
+  return {
+    text: keyword,
+    correct: false,
+    wrong: false,
+    pending: true,
+  };
+});
+
 export default {
   data() {
     return {
-      keywords: [
-        "hockey",
-        "soccer",
-        "basketball",
-        "baseball",
-        "something",
-        "random",
-        "okay",
-        "zebra",
-      ],
+      inputValue: "",
+      index: "",
+      keywords: defaultKeywords,
     };
   },
-  methods: {},
+  methods: {
+    processInput(e) {
+      const value = e.target.value;
+
+      if (value === "") {
+        return;
+      }
+
+      if (this.keywords[this.index] === value) {
+        // correct answer
+      } else {
+        // wrong answer
+      }
+
+      this.inputValue = "";
+      this.index++;
+    },
+  },
 };
 </script>
 
