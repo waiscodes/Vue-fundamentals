@@ -1,8 +1,16 @@
 <template>
   <div>
-    <h2>My Favourite Languages</h2>
-    <p>{{ keywords.join(" | ") }}</p>
-    <input :value="inputValue" @keyup.alt.enter="processInput($event)" />
+    <h2>Speed Typer</h2>
+    <p>
+      <span v-for="keyword in keywords" :key="keyword"
+        >{{ keyword }}&nbsp;</span
+      >
+      <input
+        type="text"
+        :value="inputValue"
+        @keyup.space="processInput($event)"
+      />
+    </p>
   </div>
 </template>
 
@@ -10,20 +18,19 @@
 export default {
   data() {
     return {
-      index: 0,
-      keywords: [],
-      inputValue: "",
+      keywords: [
+        "hockey",
+        "soccer",
+        "basketball",
+        "baseball",
+        "something",
+        "random",
+        "okay",
+        "zebra",
+      ],
     };
   },
-  methods: {
-    processInput(e) {
-      const value = event.target.value;
-      this.keywords[this.index] = value;
-      this.inputValue = "";
-      this.index++;
-      console.log(e);
-    },
-  },
+  methods: {},
 };
 </script>
 
