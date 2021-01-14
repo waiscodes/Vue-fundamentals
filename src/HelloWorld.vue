@@ -2,7 +2,7 @@
   <div>
     <h2>Speed Typer</h2>
     <p>
-      <span v-for="keyword in keywords" :key="keyword"
+      <span v-for="keyword in keywords" :key="keyword.text"
         >{{ keyword.text }}&nbsp;</span
       >
       <input
@@ -51,8 +51,14 @@ export default {
 
       if (this.keywords[this.index] === value) {
         // correct answer
+        this.keywords[this.index].correct = true;
+        this.keywords[this.index].wrong = false;
+        this.keywords[this.index].pending = false;
       } else {
         // wrong answer
+        this.keywords[this.index].correct = false;
+        this.keywords[this.index].wrong = true;
+        this.keywords[this.index].pending = false;
       }
 
       this.inputValue = "";
